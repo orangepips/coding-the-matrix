@@ -13,7 +13,7 @@ and display them with a web browser.
 # To do: check types of arguments, check that image has no alpha channel
 # Note that right now, we ignore the alpha channel, but allow it. - @dbp
 
-import png
+import chapter1.png as png
 import numbers
 import collections
 
@@ -72,7 +72,6 @@ def file2image(path):
         three values). This is a color image. """
     (w, h, p, m) = png.Reader(filename = path).asRGBA() # force RGB and alpha
     return [_flat2boxed(r) for r in p]
-
 
 def image2file(image, path):
     """ Writes an image in list of lists format to a file. Will work with
