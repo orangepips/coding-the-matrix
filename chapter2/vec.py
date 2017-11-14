@@ -69,7 +69,7 @@ def equal(u,v):
     False
     """
     assert u.D == v.D
-    pass
+    return all([u[key] == v[key] for key in u.D])
 
 
 def add(u,v):
@@ -142,7 +142,7 @@ def dot(u,v):
     12
     """
     assert u.D == v.D
-    pass
+    return sum([u[key] * v[key] for key in u.D | v.D])
 
 
 # Quiz 2.7.3

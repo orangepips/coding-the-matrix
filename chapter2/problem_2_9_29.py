@@ -1,34 +1,7 @@
 from itertools import combinations
 import collections
-import pprint
 
 # also see Example 2.9.17
-
-# def calculate_possible_requests(challenge, response, requests = None):
-#     challenge_len = len(challenge)
-#
-#     if requests is None:
-#         requests = set()
-#         for n in range(2 ** 6 - 1):
-#             requests.add('{0:0{1}b}'.format(n, challenge_len))
-#
-#     int_challenge = int(challenge, 2)
-#     candidate_requests = requests.copy()
-#
-#     for candidate_request in candidate_requests:
-#         int_dot_product = int_challenge ^ int(candidate_request, 2)
-#         dot_product = '{0:0{1}b}'.format(int_dot_product,challenge_len)
-#         dot_product_response = dot_product.count("1") % 2
-#         keep = True
-#         if not dot_product_response == response:
-#             requests.remove(candidate_request)
-#             keep = False
-#
-#         print("{0}\t{1}\t{2}\t{3}".format(candidate_request, dot_product, dot_product_response, keep))
-#
-#     return requests
-
-
 CHALLENGE_LENGTH = 6
 
 """
