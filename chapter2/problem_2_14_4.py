@@ -1,7 +1,10 @@
-from chapter1.GF2 import one
-from chapter2.vecutil import list2vec, zero_vec
-from itertools import combinations
 import collections
+from itertools import combinations
+
+from vecutil import list2vec, zero_vec
+
+from GF2 import one
+
 
 def calc_combo_sums(codes, D):
     combo_sums = collections.defaultdict(set)

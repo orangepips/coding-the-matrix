@@ -1,6 +1,6 @@
 # Copyright 2013 Philip N. Klein
-from chapter2.vec import Vec
-from chapter2.vecutil import zero_vec
+from vec import Vec
+from vecutil import zero_vec
 
 def triangular_solve_n(rowlist, b):
     '''

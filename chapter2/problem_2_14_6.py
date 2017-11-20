@@ -1,6 +1,8 @@
 from itertools import product
-from chapter1.GF2 import one
-from chapter2.vecutil import list2vec
+
+from vecutil import list2vec
+
+from GF2 import one
 
 a = list2vec([one, one, 0, 0])
 b = list2vec([one, 0, one, 0])

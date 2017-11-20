@@ -13,15 +13,16 @@ and display them with a web browser.
 # To do: check types of arguments, check that image has no alpha channel
 # Note that right now, we ignore the alpha channel, but allow it. - @dbp
 
-import chapter1.png as png
-import numbers
+import atexit
 import collections
-
+import numbers
+import os
+import tempfile
 # Native imports
 import webbrowser
-import tempfile
-import os
-import atexit
+
+import png as png
+
 
 # Round color coordinate to nearest int and clamp to [0, 255]
 def _color_int(col):
@@ -82,7 +83,7 @@ def image2file(image, path):
         img = image
     with open(path, 'wb') as f:
         png.Writer(width=len(image[0]), height=len(image)).write(f,
-            [_boxed2flat(r) for r in img])
+                                                                 [_boxed2flat(r) for r in img])
 
 ## Display functions
 def image2display(image, browser=None):

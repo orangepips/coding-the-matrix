@@ -1,5 +1,5 @@
 # Copyright 2013 Philip N. Klein
-from chapter2.vec import Vec
+from vec import Vec
 
 def list2vec(L):
     """Given a list L of field elements, return a Vec with domain {0...len(L)-1}

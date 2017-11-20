@@ -1,5 +1,5 @@
 import chapter1.task_1_4_11 as task11
-from chapter1.image import file2image
+from image import file2image
 
 
 def image2points(image_path='./img01.png', intensity_limit=120):
