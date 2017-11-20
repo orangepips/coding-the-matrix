@@ -13,7 +13,7 @@ So to use you would type something like:
     >>> from chapter0 import dictutil
     >>> [dictutil.row(p, 20) for p in range(15)]   
     
-#Errors Found
+# Errors Found
 
 All of the following have also been sent to info@codingthematrix.com 
 
