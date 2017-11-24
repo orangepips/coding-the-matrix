@@ -17,6 +17,7 @@ So to use you would type something like:
 
 All of the following have also been sent to info@codingthematrix.com 
 
-* [2.9.15](chapter2/quiz_2_9_15_errata.py) Off By One
+ * [2.9.15](chapter2/quiz_2_9_15_errata.py) Off By One
+ * 4.9.3 XKCD Matrix Transform should reference https://xkcd.com/184/ not https://xkcd.com/824/
 
  
