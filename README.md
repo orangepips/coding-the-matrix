@@ -15,9 +15,18 @@ So to use you would type something like:
     
 # Errors Found
 
-All of the following have also been sent to info@codingthematrix.com 
+All of the following have also been sent to info@codingthematrix.com
 
- * [2.9.15](chapter2/quiz_2_9_15_errata.py) Off By One
- * 4.9.3 XKCD Matrix Transform should reference https://xkcd.com/184/ not https://xkcd.com/824/
+A ^ at the end of a line indicates a "confirmed" response.  
+
+ * [2.9.15](chapter2/quiz_2_9_15_errata.py) Off By One^ 
+ * 4.9.3 XKCD Matrix Transform should reference https://xkcd.com/184/ not https://xkcd.com/824/ ^
+ * [`ecc_lab.py`](./matrix/ecc_lab.py) Task 10 Bug: passes doctest but fails via `submit.py` ^
+ * `matrix_resources/images`: Section 4.15.5 references but not on the web site. Checked: 
+   * http://resources.codingthematrix.com/ 
+   * http://grading.codingthematrix.com/edition1/index.html
+   * http://resources.codingthematrix.com/images/
+   * http://resources.codingthematrix.com/matrix_resources/images/
+ * [geometry_lab.py](matrix/geometry_lab.py) Task 4 (Line 59) missing lead doctest angle brackets ">>>"
 
  

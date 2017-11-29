@@ -21,11 +21,12 @@ def example_4_9_3(coords):
     >>> example_4_9_3(G2r[1]) == list2vec([0, 1])
     True
     """
-    return _derive(listlist2mat([[2, 0], [0, 1]]), coords)
+    #return _derive(listlist2mat([[2, 0], [0, 1]]), coords)
+    return list2vec([2*coords[0], coords[1]])
 
 def example_4_9_4(coords):
     """
-    Rotate points in 2D by 90 degrees
+    Rotate points in 2D by 90 degrees (x, y) -> (-y, x) CCW
     :param coords: 2-vector coordinates x, y
     :return: vector rotated by 90 degrees
 
@@ -34,7 +35,8 @@ def example_4_9_4(coords):
     >>> example_4_9_4(G2r[1]) == list2vec([-1, 0])
     True
     """
-    return _derive(listlist2mat([[0, -1], [1, 0]]), coords)
+    #return _derive(listlist2mat([[0, -1], [1, 0]]), coords)
+    return list2vec([-coords[1], coords[0]])
 
 def example_4_9_5(coords, theta=30):
     """
@@ -45,13 +47,22 @@ def example_4_9_5(coords, theta=30):
 
     >>> theta = 30
     >>> theta_r = radians(theta)
-    >>> example_4_9_5(G2r[0], theta) == list2vec([cos(theta_r), sin(theta_r)])
+    >>> L = example_4_9_5(G2r[0], theta)
+    >>> R = list2vec([cos(theta_r), sin(theta_r)])
+    >>> L == R
     True
     >>> example_4_9_5(G2r[1], theta) == list2vec([-sin(theta_r), cos(theta_r)])
     True
     """
     theta = radians(theta)
-    return _derive(listlist2mat([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]]), coords)
+    #return _derive(listlist2mat([[cos(theta), -sin(theta)], [sin(theta), cos(theta)]]), coords)
+    # https://matthew-brett.github.io/teaching/rotation_2d.html
+    x1 = coords[0]
+    y1 = coords[1]
+    x2 = x1 * cos(theta) - y1 * sin(theta)
+    y2 = x1 * sin(theta) + y1 * cos(theta)
+    return list2vec([x2, y2])
+
 
 def example_4_9_6(coords):
     """
@@ -64,4 +75,5 @@ def example_4_9_6(coords):
     >>> example_4_9_6(G2r[1]) == list2vec([1, 3])
     True
     """
-    return _derive(listlist2mat([[2, 1], [2, 3]]), coords)
+    #return _derive(listlist2mat([[2, 1], [2, 3]]), coords)
+    return list2vec([coords[0] + 1, coords[1] + 2])
