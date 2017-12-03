@@ -33,5 +33,6 @@ A ^ at the end of a line indicates a "confirmed" response.
    * http://resources.codingthematrix.com/images/
    * http://resources.codingthematrix.com/matrix_resources/images/
  * [geometry_lab.py](matrix/geometry_lab.py) Task 4 (Line 59) missing lead doctest angle brackets ">>>"
+ * [The_Matrix_Problems.py](matrix/The_Matrix_problems.py) Problem 16's `most_agreeing_pair_of_countries` is marked incorrect
 
  

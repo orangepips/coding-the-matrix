@@ -3,8 +3,9 @@
 
 from mat import Mat
 from vec import Vec
-from matutil import mat2rowdict, mat2coldict, rowdict2mat, coldict2mat
+from matutil import mat2rowdict, mat2coldict, rowdict2mat, coldict2mat, listlist2mat
 from vecutil import list2vec
+from GF2 import one
 
 
 ## 1: (Problem 4.17.1) Computing matrix-vector products
@@ -452,11 +453,15 @@ most_opposed_10_pairs_of_countries = [
 
 # Provide a set consisting of two strings
 most_agreeing_pair_of_countries = ('Philippines', 'Thailand') # [t[1] for t in sorted([(value,key) for key, value in M_unique.items()])][-1]
+# TODO: submit.py says this is wrong...
 
 
 ## 17: (Problem 4.17.20) Dictlist Helper
 def dictlist_helper(dlist, k):
     '''
+    :param dlist: ictionaries which all have the same keys
+    :param k: a key
+    :return: list whose ith element corresponds to the k element in the ith dictionary
     Input: a list dlist of dictionaries which all have the same keys, and a key k
     Output: the list whose ith element is the value corresponding to the key k 
             in the ith dictionary of dlist
@@ -464,27 +469,68 @@ def dictlist_helper(dlist, k):
     >>> dictlist_helper([{'apple':'Apfel','bread':'Brot'},{'apple':'manzana', 'bread':'pan'},{'apple':'pomme','bread':'pain'}], 'apple')
     ['Apfel', 'manzana', 'pomme']
     '''
-    pass
+    return [d[k] for d in dlist]
 
 
 
 ## 18: (Problem 4.17.21) Solving 2x2 linear systems and finding matrix inverse
-solving_systems_x1 = None
-solving_systems_x2 = None
-solving_systems_y1 = None
-solving_systems_y2 = None
-solving_systems_m = Mat(({0, 1}, {0, 1}), {...:...})
-solving_systems_a = Mat(({0, 1}, {0, 1}), {...:...})
-solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {...:...})
-solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {...:...})
+# Example 4.13.15
+
+# 3x1 + 4x2 = 1, 2x1 + 1x2 = 0
+# 3x1 + 4x2 = 1, x2 = -2x1
+# 3x1 + 4 * (-2x1) = 1, x2 = -2x1
+# 3x1 + -8x1 = 1, x2 = -2x1
+# -5x1 = 1, x2 = -2x1
+# x1 = -1/5, x2 = -2 * -1/5
+solving_systems_x1 = -1/5
+solving_systems_x2 = 2/5
+
+# 3y1 + 4y2 = 0, 2y1 + 1y2 = 1
+# 3y1 = -4y2, 2y1 + 1y2 = 1
+# y1 = -4/3y2, 2 * -4/3y2 + y2 = 1
+# y1 = -4/3y2, -8/3y2 + 3/3y2 = 1
+# y1 = -4/3y2, -5/3y2 = 1
+# y1 = -4/3y2, y2 = -3/5
+# y1 = -4/3 * -3/5, y2 = -3/5
+# y1 = 4/5, y2 = -3/5
+solving_systems_y1 = 4/5
+solving_systems_y2 = -3/5
+
+solving_systems_m = Mat(({0, 1}, {0, 1}), {(0, 1): 0.8, (1, 0): 0.4, (0, 0): -0.2, (1, 1): -0.6})
+solving_systems_a = Mat(({0, 1}, {0, 1}), {(0, 1): 4, (1, 0): 2, (0, 0): 3, (1, 1): 1})
+
+solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {(0, 1): 0.0, (1, 0): 2.220446049250313e-16, (0, 0): 1.0, (1, 1): 1.0})
+solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {(0, 1): 4.440892098500626e-16, (1, 0): 0.0, (0, 0): 1.0, (1, 1): 1.0})
+
+
 
 
 
 ## 19: (Problem 4.17.22) Matrix inverse criterion
 # Please write your solutions as booleans (True or False)
 
-are_inverses1 = None
-are_inverses2 = None
-are_inverses3 = None
-are_inverses4 = None
+identity_matrix = listlist2mat([[1,0],[0,1]])
+one_identity_matrix = listlist2mat([[one, 0], [0, one]])
 
+def are_inverses(A, B, test_identity_matrix=identity_matrix):
+    """
+    If A*B == identity and B*A == identity
+    :param A: 2x2 matrix
+    :param B: 2x2 matrix
+    :return: if A & B are inverse matrices
+    >>> are_inverses(listlist2mat([[5,1],[9,2]]), listlist2mat([[2,-1], [-9,5]]))
+    True
+    """
+    try:
+        return A*B == test_identity_matrix and B*A == test_identity_matrix
+    except AssertionError:
+        return False
+
+are_inverses1 = are_inverses(listlist2mat([[5,1],[9,2]]), listlist2mat([[2,-1], [-9,5]]))
+are_inverses2 = are_inverses(listlist2mat([[2,0],[0,1]]), listlist2mat([[.5,0],[0,1]]))
+are_inverses3 = are_inverses(listlist2mat([[3,1],[0,2]]), listlist2mat([[1, 1/6],[-2,1/2]]))
+are_inverses4 = are_inverses(
+    listlist2mat([[one, 0, one], [0, one, 0]]),
+    listlist2mat([[0, one], [0, one], [one, one]]),
+    one_identity_matrix
+)
