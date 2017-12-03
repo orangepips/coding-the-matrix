@@ -13,6 +13,11 @@ So to use you would type something like:
     >>> from chapter0 import dictutil
     >>> [dictutil.row(p, 20) for p in range(15)]   
     
+# Comments 
+
+* **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
+* **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
+
 # Errors Found
 
 All of the following have also been sent to info@codingthematrix.com

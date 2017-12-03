@@ -1,7 +1,7 @@
 # Copyright 2013 Philip N. Klein
 from vec import Vec
-from functools import reduce
-import operator
+# from functools import reduce
+# import operator
 
 #Test your Mat class over R and also over GF(2).  The following tests use only R.
 
@@ -42,7 +42,11 @@ def equal(A, B):
     True
     """
     assert A.D == B.D
-    return all([A[r, c] == B[r, c] for r, c in zip(A.D[0], A.D[1])])
+
+    for Ar, Br in zip(A.D[0], B.D[0]):
+        for Ac, Bc in zip(A.D[1], B.D[1]):
+            if not A[Ar, Ac] == B[Br, Bc]: return False
+    return True
 
 def setitem(M, k, val):
     """
@@ -90,7 +94,12 @@ def add(A, B):
     True
     """
     assert A.D == B.D
-    return Mat(A.D, {(x, y): A[x, y] + B[x, y] for x, y in zip(A.D[0], A.D[1])})
+    r = Mat(A.D, {})
+    for x in r.D[0]:
+        for y in r.D[1]:
+            r[x, y] = A[x, y] + B[x, y]
+    return r
+    # return Mat(A.D, {(x, y): A[x, y] + B[x, y] for x, y in zip(A.D[0], A.D[1])})
 
 def scalar_mul(M, x):
     """
@@ -105,8 +114,9 @@ def scalar_mul(M, x):
     True
     """
     Mx = Mat(M.D, {})
-    for a, b in zip(M.D[0], M.D[1]):
-        Mx[a, b] = x * M[a, b]
+    for a in M.D[0]:
+        for b in M.D[1]:
+            Mx[a, b] = x * M[a, b]
     return Mx
 
 def transpose(M):
@@ -149,8 +159,13 @@ def vector_matrix_mul(v, M):
     True
     """
     assert M.D[0] == v.D
-    return reduce(operator.add, [v[r] * Vec(M.D[1], {c: M[r, c] for c in M.D[1]}) for r in M.D[0]])
-    pass
+    r = Vec(M.D[1], {})
+    for i in M.D[0]:
+        for j in M.D[1]:
+            if M[i, j] == 0: continue
+            r[j] = r[j] + M[i, j] * v[i]
+    return r
+    # return reduce(operator.add, [v[r] * Vec(M.D[1], {c: M[r, c] for c in M.D[1]}) for r in M.D[0]])
 
 def matrix_vector_mul(M, v):
     """
@@ -177,8 +192,18 @@ def matrix_vector_mul(M, v):
     True
     """
     assert M.D[1] == v.D
-    return reduce(operator.add, [v[c] * Vec(M.D[0], {r:M[r, c] for r in M.D[0]}) for c in M.D[1]])
-    pass
+    # Section 4.8 (Equation 4.5)
+    # initialize r to zero vector
+    # for each pair (i, j) such that the sparse representation specifies M[i, j]
+    #   r[i] = r[i] + M[i, j]v[j]
+    # TODO: turn this into a comprehension
+    r = Vec(M.D[0],{})
+    for i in M.D[0]:
+        for j in M.D[1]:
+            if M[i, j] == 0: continue
+            r[i] = r[i] + M[i, j] * v[j]
+    return r
+    # return reduce(operator.add, [v[c] * Vec(M.D[0], {r:M[r, c] for r in M.D[0]}) for c in M.D[1]])
 
 def matrix_matrix_mul(A, B):
     """
