@@ -15,8 +15,9 @@ So to use you would type something like:
     
 # Comments 
 
-* **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
-* **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
+ * **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
+ * **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
+ * [`solver.py`](solver.py) module implementation is based 64 encoded pyc. No comments explaining why. 
 
 # Errors Found
 
@@ -32,7 +33,7 @@ A ^ at the end of a line indicates a "confirmed" response.
    * http://grading.codingthematrix.com/edition1/index.html
    * http://resources.codingthematrix.com/images/
    * http://resources.codingthematrix.com/matrix_resources/images/
- * [geometry_lab.py](matrix/geometry_lab.py) Task 4 (Line 59) missing lead doctest angle brackets ">>>"
- * [The_Matrix_Problems.py](matrix/The_Matrix_problems.py) Problem 16's `most_agreeing_pair_of_countries` is marked incorrect
+ * [`geometry_lab.py`](matrix/geometry_lab.py) Task 4 (Line 59) missing lead doctest angle brackets ">>>"
+ * [`The_Matrix_Problems.py`](matrix/The_Matrix_problems.py) Problem 16's `most_agreeing_pair_of_countries` is marked incorrect
 
  
