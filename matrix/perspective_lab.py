@@ -207,14 +207,14 @@ def mat_move2board(Y):
     return coldict2mat({key:move2board(col) for key, col in mat2coldict(Y).items()})
 
 
-def rebase(img_path, rb_pixel_corners=pixel_corners, scale=100):
-    rb_veclist = make_nine_equations(rb_pixel_corners)
-    rb_L = Mat((b.D, w.D), {(row, col): rb_veclist[row][col] for row in b.D for col in w.D})
-    rb_hvec = solve(rb_L, b)
-    rb_H = Mat(({'y1', 'y2', 'y3'}, {'x1', 'x2', 'x3'}), {(key[0], key[1]):rb_hvec[key] for key in rb_hvec.D})
+def change_perspective(img_path, cp_pixel_corners=pixel_corners, scale=100):
+    cp_veclist = make_nine_equations(cp_pixel_corners)
+    cp_L = Mat((b.D, w.D), {(row, col): cp_veclist[row][col] for row in b.D for col in w.D})
+    cp_hvec = solve(cp_L, b)
+    cp_H = Mat(({'y1', 'y2', 'y3'}, {'x1', 'x2', 'x3'}), {(key[0], key[1]):cp_hvec[key] for key in cp_hvec.D})
 
     (X_pts, colors) = image_mat_util.file2mat(img_path, ('x1', 'x2', 'x3'))
-    Y_board = mat_move2board(rb_H * X_pts)
+    Y_board = mat_move2board(cp_H * X_pts)
     image_mat_util.mat2display(Y_board, colors, ('y1', 'y2', 'y3'), scale=scale, xmin=None, ymin=None)
 
 # In Mac Preview select a point and drag to the upper left hand corner to get pixel measurements.
@@ -223,4 +223,4 @@ def rebase(img_path, rb_pixel_corners=pixel_corners, scale=100):
 # TODO: figure out a good way to determine scale value
 
 # this gives a pretty good result for cit.png
-# rebase('cit.png', rb_pixel_corners=[(83, 74), (82, 103), (106, 69), (105, 102)], scale=25)
+# change_perspective('cit.png', rb_pixel_corners=[(83, 74), (82, 103), (106, 69), (105, 102)], scale=25)

@@ -18,10 +18,11 @@ So to use you would type something like:
  * **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
  * **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
  * [`solver.py`](solver.py) module implementation is based 64 encoded pyc. No comments explaining why. 
+ * 5.11 The Exchange Lemma is not well explained. It could use a concrete example before Problem 5.14.11
 
 # Errors Found
 
-All of the following have also been sent to info@codingthematrix.com
+All of the following have also been sent to `info@codingthematrix.com`
 
 A ^ at the end of a line indicates a "confirmed" response.  
 
@@ -35,5 +36,10 @@ A ^ at the end of a line indicates a "confirmed" response.
    * http://resources.codingthematrix.com/matrix_resources/images/
  * [`geometry_lab.py`](matrix/geometry_lab.py) Task 4 (Line 59) missing lead doctest angle brackets ">>>"
  * [`The_Matrix_Problems.py`](matrix/The_Matrix_problems.py) Problem 16's `most_agreeing_pair_of_countries` is marked incorrect
+ * Problem 5.14.9 (c) not answerable due to value of last vector being cutoff (Kindle edition). Copy and paste doesn't solve as it comes across as:
+   ```
+   [one, one, 0, one, one], [0, 0, one, 0, 0], [0, 0, one, one, one], [one, 0, one, one, one], [one, one, one,
+   
+   Problem 5.14.10: Each of the subproblems...
+   ```
 
- 
