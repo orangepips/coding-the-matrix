@@ -219,6 +219,16 @@ def is_superfluous(L, i):
     True
     >>> is_superfluous([Vec({0,1}, {0:1})], 0)
     False
+
+    >>> from GF2 import one
+    >>> from vecutil import list2vec
+    >>> S = [list2vec(v) for v in [[one,0,0,0],[0,one,0,0],[0,0,one,0],[0,0,0,one],[one,one,one,0]]]
+    >>> is_superfluous(S, S.index(list2vec([one,0,0,0])))
+    True
+    >>> is_superfluous(S, S.index(list2vec([one,one,one,0])))
+    True
+    >>> is_superfluous(S, S.index(list2vec([0,0,0,one])))
+    False
     '''
     L_copy = L.copy()
     b = L_copy.pop(i)
@@ -349,7 +359,7 @@ def exchange(S, A, z):
         - S: a list of vectors, as instances of your Vec class
         - A: a list of vectors, each of which are in S, with len(A) < len(S)
         - z: an instance of Vec such that A+[z] is linearly independent
-    Output: a vector w in S but not in A such that Span S = Span ({z} U S - {w})
+    Output: a vector w in S but not in A such that Span S = Span ({z} U S - {w}) or None if not found
     Example:
         >>> S = [list2vec(v) for v in [[0,0,5,3],[2,0,1,3],[0,0,1,0],[1,2,3,4]]]
         >>> A = [list2vec(v) for v in [[0,0,5,3],[2,0,1,3]]]
@@ -364,4 +374,4 @@ def exchange(S, A, z):
         if vec in A or vec == z: continue
         if is_superfluous(span, ix):
             return vec
-
+    return None

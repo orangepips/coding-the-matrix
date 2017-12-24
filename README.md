@@ -13,8 +13,19 @@ So to use you would type something like:
     >>> from chapter0 import dictutil
     >>> [dictutil.row(p, 20) for p in range(15)]   
     
-# Comments 
+# Decompiling pyc
 
+In code such as [`solver.py`](solver.py) and [`independence.py`](independency.py)
+
+ 1. Install [`uncompyle6`](https://pypi.python.org/pypi/uncompyle6): $ `pip uncompyle6`
+ 1. Decode pyc string from base64 (e.g. `base64.decodebytes(pycData)`) and write to a file.
+ 1. From the command line execute `uncompyle6 -o . {pyc_file_name}.pyc` which will write a file `{pyc_file_name}.py`
+
+See [`solver_write_pyc.py`](solver_write_pyc.py) for an example.
+
+# Comments
+
+ * Sections entitled **Problem X.Y.Z** are exercises for the reader.
  * **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
  * **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
  * [`solver.py`](solver.py) module implementation is based 64 encoded pyc. No comments explaining why. 
