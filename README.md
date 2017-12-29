@@ -11,9 +11,48 @@ Each chapter's work is setup in a corresponding python package `chapter#`
 So to use you would type something like: 
 
     >>> from chapter0 import dictutil
-    >>> [dictutil.row(p, 20) for p in range(15)]   
+    >>> [dictutil.row(p, 20) for p in range(15)]
     
+# By Chapter Graded Python Files
+
+Most of these are meant to be run through [matrix/submit.py]. All are completed versions of stencils downloaded from http://grading.codingthematrix.com/edition1/index.html
+
+**Chapter 2: The Vector**
+
+ * [matrix/The_Vector_problems.py]
+ * [matrix/politics_lab.py]
+ * [matrix/vec.py]
+
+**Chapter 3: The Vector Space**
+
+ * [matrix/The_Vector_Space_problems.py]
+
+**Chapter 4: The Matrix**
+
+ * [matrix/The_Matrix_problems.py]
+ * [matrix/mat.py]
+ * [matrix/ecc_lab.py]
+ * [matrix/geometry_lab.py]
+
+**Chapter 5: The Basis**
+
+ * [matrix/The_Basis_problems.py]
+ * [matrix/perspective_lab.py]
+
+**Chapter 6: Dimension**
+
+ * [matrix/Dimension_problems.py]
+
+**Chapter 6: Guassian Elimination**
+
+ * [matrix/secret_sharing_lab.py]
+ * [matrix/factoring_lab.py]
+ * [matrix/Guassian_Elimination_problems.py]
+
+
 # Decompiling pyc
+
+I find the author's approach frustrating to include pyc inline within a .py file. Seems the only reason is to obscure from students.
 
 In code such as [`solver.py`](solver.py) and [`independence.py`](independency.py)
 
@@ -25,6 +64,7 @@ See [`solver_write_pyc.py`](solver_write_pyc.py) for an example.
 
 # Comments
 
+ * Given all the issues with floating point arithmetic, should use the [`Decimal`](https://docs.python.org/3/library/decimal.html) module instead.
  * Sections entitled **Problem X.Y.Z** are exercises for the reader.
  * **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
  * **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
