@@ -12,55 +12,9 @@ So to use you would type something like:
 
     >>> from chapter0 import dictutil
     >>> [dictutil.row(p, 20) for p in range(15)]
-    
-# By Chapter Graded Python Files
 
-Most of these are meant to be run through [matrix/submit.py]. All are completed versions of stencils downloaded from http://grading.codingthematrix.com/edition1/index.html
-
-**Chapter 2: The Vector**
-
- * [matrix/The_Vector_problems.py]
- * [matrix/politics_lab.py]
- * [matrix/vec.py]
-
-**Chapter 3: The Vector Space**
-
- * [matrix/The_Vector_Space_problems.py]
-
-**Chapter 4: The Matrix**
-
- * [matrix/The_Matrix_problems.py]
- * [matrix/mat.py]
- * [matrix/ecc_lab.py]
- * [matrix/geometry_lab.py]
-
-**Chapter 5: The Basis**
-
- * [matrix/The_Basis_problems.py]
- * [matrix/perspective_lab.py]
-
-**Chapter 6: Dimension**
-
- * [matrix/Dimension_problems.py]
-
-**Chapter 6: Guassian Elimination**
-
- * [matrix/secret_sharing_lab.py]
- * [matrix/factoring_lab.py]
- * [matrix/Guassian_Elimination_problems.py]
-
-
-# Decompiling pyc
-
-I find the author's approach frustrating to include pyc inline within a .py file. Seems the only reason is to obscure from students.
-
-In code such as [`solver.py`](solver.py) and [`independence.py`](independency.py)
-
- 1. Install [`uncompyle6`](https://pypi.python.org/pypi/uncompyle6): $ `pip uncompyle6`
- 1. Decode pyc string from base64 (e.g. `base64.decodebytes(pycData)`) and write to a file.
- 1. From the command line execute `uncompyle6 -o . {pyc_file_name}.pyc` which will write a file `{pyc_file_name}.py`
-
-See [`solver_write_pyc.py`](solver_write_pyc.py) for an example.
+ * [Graded Stencil Files](grading/)
+ * [Book Python Resources](resources/)
 
 # Comments
 
@@ -93,4 +47,4 @@ A ^ at the end of a line indicates a "confirmed" response.
    
    Problem 5.14.10: Each of the subproblems...
    ```
-
+ * `submit.py` grading for Problem 7.9.7 in [`Gaussian_Eliminating_problems.py`](matrix/Gaussian_Elimination_problems.py) expects `row_list` but has `rowlist`.
