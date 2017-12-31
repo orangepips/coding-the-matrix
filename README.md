@@ -6,11 +6,11 @@ While this does have some overlap with the Coursera course, the exercises tend t
 
 Code written using Python 3.5.4 on OSX using the [Anaconda distribution](https://www.anaconda.com/download/). 
 
-Each chapter's work is setup in a corresponding python package `chapter#`
+Each chapter's work is setup in a corresponding python package `chapter/#`
 
 So to use you would type something like: 
 
-    >>> from chapter0 import dictutil
+    >>> from chapter.0 import dictutil
     >>> [dictutil.row(p, 20) for p in range(15)]
 
  * [Graded Stencil Files](grading/)
@@ -18,6 +18,7 @@ So to use you would type something like:
 
 # Comments
 
+ * `itertools` has been useful for many different problems
  * Given all the issues with floating point arithmetic, should use the [`Decimal`](https://docs.python.org/3/library/decimal.html) module instead.
  * Sections entitled **Problem X.Y.Z** are exercises for the reader.
  * **Problem 2.14.10** the `Vec` class should be implemented earlier in the chapter. 
