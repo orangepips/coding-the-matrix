@@ -1,4 +1,7 @@
 from resources.vecutil import list2vec
+from resources.matutil import rowdict2mat, mat2rowdict
+from resources.mat import Mat
+from resources.independence import rank
 
 
 # ||v|| == sqrt(<v, v>)
@@ -68,3 +71,22 @@ def lemma_8_3_3_generalized(scalars, vectors):
     t1 *= t1 # because the Vec clas does not have the 'pow' operator implemented
     t2 = sum([s**2 * ((v*v)**(1/2))**2 for s, v in zip(scalars, vectors)])
     return t1, t2
+
+
+# πᵥ(x) == projection of x along v
+# πᵥ(x) == (v * x)v
+# Problem 8.3.15
+def projection_matrix(v):
+    """
+    Given vector v returns matrix M such that πᵥ(x) == Mx
+    :param v: vector
+    :return: matrix
+    >>> v = list2vec([2, 0, 2])
+    >>> result = projection_matrix(v)
+    >>> result == Mat(({0}, {0}), {(0, 0): 8})
+    True
+    >>> rank(list(mat2rowdict(result).values()))
+    1
+    """
+    return rowdict2mat([v]) * rowdict2mat([v]).transpose()
+
