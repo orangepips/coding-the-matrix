@@ -1,7 +1,8 @@
 from resources.vecutil import list2vec
-from resources.matutil import rowdict2mat, mat2rowdict
+from resources.matutil import rowdict2mat, mat2rowdict, listlist2mat
 from resources.mat import Mat
 from resources.independence import rank
+from resources.vec import Vec
 
 
 # ||v|| == sqrt(<v, v>)
@@ -75,7 +76,7 @@ def lemma_8_3_3_generalized(scalars, vectors):
 
 # πᵥ(x) == projection of x along v
 # πᵥ(x) == (v * x)v
-# Problem 8.3.15
+# Problem 8.3.15 & 8.3.16
 def projection_matrix(v):
     """
     Given vector v returns matrix M such that πᵥ(x) == Mx
@@ -90,3 +91,38 @@ def projection_matrix(v):
     """
     return rowdict2mat([v]) * rowdict2mat([v]).transpose()
 
+
+# 8.3.17 > 1 & 2
+def scalar_mul_count_M_v(M, v):
+    """
+    Multiply M * v and return count of scalar multiplications involved
+    :param M: n x m matrix (n - rows, m - cols)
+    :param v: m vector
+    :return: scalar multiplication count == n * m (#1)
+    >>> M = listlist2mat([[1, 2, 3], [4, 5, 6]])
+    >>> v = list2vec([1, 1, 1])
+    >>> scalar_mul_count_M_v(M, v) == len(M.D[0]) * len(v.D)
+    True
+    >>> M1 = listlist2mat([[1], [1], [1]])
+    >>> M2 = listlist2mat([[1, 1, 1]])
+    >>> x = list2vec([1, 1, 1])
+    >>> scalar_mul_count_M_v(M2, x) + scalar_mul_count_M_v(M1, M2 * x) == 2 * len(x.D) # == M1 * (M2x)
+    True
+    """
+
+    class MatInnerProduct(Mat):
+        scalar_scalar_mul_count = 0
+
+        def __mul__(M, v):
+            assert M.D[1] == v.D
+            r = Vec(M.D[0], {})
+            for i in M.D[0]:
+                for j in M.D[1]:
+                    M.scalar_scalar_mul_count += 1
+                    if M[i, j] == 0: continue
+                    r[i] = r[i] + M[i, j] * v[j]
+            return r
+
+    MIP = MatInnerProduct(M.D, M.f)
+    MIP * v
+    return MIP.scalar_scalar_mul_count

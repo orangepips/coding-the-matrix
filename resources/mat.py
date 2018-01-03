@@ -139,6 +139,10 @@ def vector_matrix_mul(v, M):
     Consider using brackets notation v[...] in your procedure
     to access entries of the input vector.  This avoids some sparsity bugs.
 
+    :param v: R vector
+    :param M: R x C matrix
+    :return: C vector
+
     >>> v1 = Vec({1, 2, 3}, {1: 1, 2: 8})
     >>> M1 = Mat(({1, 2, 3}, {'a', 'b', 'c'}), {(1, 'b'): 2, (2, 'a'):-1, (3, 'a'): 1, (3, 'c'): 7})
     >>> v1*M1 == Vec({'a', 'b', 'c'},{'a': -8, 'b': 2, 'c': 0})

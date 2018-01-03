@@ -38,6 +38,10 @@ Note, [submit.py](submit.py) does not create a `receipt` directory or capture su
  * [factoring_lab.py]
  * [Guassian_Elimination_problems.py]
 
+**Chapter 8: The Inner Product**
+
+ * [machine_learning_lab.py]
+
 # Auto-grading for Coding the Matrix, Edition One (beta version)
 
 Make sure you have Python 3.x on your computer.  In the following, I will assume that python3 is the command used to invoke Python.  (On Windows, it might be just python.)
