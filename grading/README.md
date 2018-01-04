@@ -41,6 +41,7 @@ Note, [submit.py](submit.py) does not create a `receipt` directory or capture su
 **Chapter 8: The Inner Product**
 
  * [machine_learning_lab.py]
+ * [The_Inner_Product_problems.py]
 
 # Auto-grading for Coding the Matrix, Edition One (beta version)
 

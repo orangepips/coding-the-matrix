@@ -48,4 +48,5 @@ A ^ at the end of a line indicates a "confirmed" response.
    
    Problem 5.14.10: Each of the subproblems...
    ```
- * `submit.py` grading for Problem 7.9.7 in [`Gaussian_Eliminating_problems.py`](matrix/Gaussian_Elimination_problems.py) expects `row_list` but has `rowlist`.
+ * `submit.py` grading for Problem 7.9.7 in [`Gaussian_Eliminating_problems.py`](grading/Gaussian_Elimination_problems.py) expects `row_list` but has `rowlist`.
+ * `submit.py` grading for Problem 8.6.3 #2 in [`The_Inner_Product_problems.py`](grading/The_Inner_Product_problems.py) does not adhere to the description of 6 decimal places allowed where `project_along(b, v)` and `project_orthogonal_1(b, v)` produce decimals that I in turn rounded. Instead it wants vector values to fractions (`x/y`).
