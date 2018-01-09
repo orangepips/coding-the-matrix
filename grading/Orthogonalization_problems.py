@@ -429,3 +429,14 @@ v = linear_regression()
 a = v['a']
 b = v['b']
 
+# 9.11.16
+def least_squares_machine_learning():
+    """
+    :return: nothing
+    >>> least_squares_machine_learning()
+    """
+    from grading.machine_learning_lab import read_data_into_A_b, fraction_wrong, validate_file
+    A, b = read_data_into_A_b()
+    x = QR_solve(A, b)
+    A_val, b_val = read_data_into_A_b(validate_file)
+    print(fraction_wrong(A_val, b_val, x))
