@@ -56,4 +56,5 @@ def triangular_solve(rowlist, label_list, b):
         c = label_list[j]
         row = rowlist[j]
         x[c] = (b[j] - x*row)/row[c]
+        # print(repr(x), repr(row), c, j, b[j], repr(b))
     return x

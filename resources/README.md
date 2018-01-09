@@ -28,14 +28,18 @@ As linked from http://resources.codingthematrix.com/
 
 ### Images
 
- * [board.png]
- * [cit.png]
- * [head-paint.png]
- * [img01.png]
+ * [images/board.png]
+ * [images/cit.png]
+ * [images/head-paint.png]
+ * [images/img01.png]
 
 ### Data Files
 
- * [UN_voting_data.txt]
+ * [data/age-height.txt]
+ * [data/train.data]
+ * [data/UN_voting_data.txt]
+ * [data/validate.data]
+
 
 ## Decompiling pyc
 

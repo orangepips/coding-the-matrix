@@ -25,6 +25,9 @@ So to use you would type something like:
  * **Problem 4.17.12** the `Mat` class should be implemented earlier in the chapter. 
  * [`solver.py`](solver.py) module implementation is based 64 encoded pyc. No comments explaining why. 
  * 5.11 The Exchange Lemma is not well explained. It could use a concrete example before Problem 5.14.11
+ * 9.2.2 Augmenting `project_orthogonal` goes way off the reservation:
+   * The Mathese vs Python array indexing syntax of one versus zero, respectively is annoying. That this section announces the Mathese therein will use zero is simply maddening.
+   * Then telling the reader about what's Pythonic or not, is even nuttier.
 
 # Errors Found
 
@@ -50,3 +53,4 @@ A ^ at the end of a line indicates a "confirmed" response.
    ```
  * `submit.py` grading for Problem 7.9.7 in [`Gaussian_Eliminating_problems.py`](grading/Gaussian_Elimination_problems.py) expects `row_list` but has `rowlist`.
  * `submit.py` grading for Problem 8.6.3 #2 in [`The_Inner_Product_problems.py`](grading/The_Inner_Product_problems.py) does not adhere to the description of 6 decimal places allowed where `project_along(b, v)` and `project_orthogonal_1(b, v)` produce decimals that I in turn rounded. Instead it wants vector values to fractions (`x/y`).
+ * http://resources.codingthematrix.com/orthonormalization.py update doctests to match http://grading.codingthematrix.com/edition1/Orthogonalization_problems.py

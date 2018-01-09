@@ -14,3 +14,12 @@ def zero_vec(D):
     """Returns a zero vector with the given domain
     """
     return Vec(D, {})
+
+
+def vec2list(v):
+    """
+    Given an n vector with domain D return an n list of values in order of sorted(D)
+    :param v: n vector
+    :return: n list
+    """
+    return [v[d] for d in sorted(v.D)]
