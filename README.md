@@ -29,6 +29,17 @@ So to use you would type something like:
    * The Mathese vs Python array indexing syntax of one versus zero, respectively is annoying. That this section announces the Mathese therein will use zero is simply maddening.
    * Then telling the reader about what's Pythonic or not, is even nuttier.
 
+# Kindle Version Bugs
+
+ * OSX copy paste is a clown show.
+   * Never clear when it's possible to copy or not.
+   * Copying includes the copy right text.
+ * Missing Images
+   * p 484
+   * p 499-500 Fourier Transformations & Charting Waves
+   
+
+
 # Errors Found
 
 All of the following have also been sent to `info@codingthematrix.com`

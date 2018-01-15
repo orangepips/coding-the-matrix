@@ -30,6 +30,8 @@ As linked from http://resources.codingthematrix.com/
 
  * [images/board.png]
  * [images/cit.png]
+ * [images/Dali.png]: provided for Chapter 10 wavelet lab (dimensions are power of 2)
+ * [images/flag.png]: provided for Chapter 10 wavelet lab (dimensions are power of 2)
  * [images/head-paint.png]
  * [images/img01.png]
 
